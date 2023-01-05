@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 
@@ -23,8 +22,8 @@ function App() {
         {
             email: "",
             password: "",
-            confirm: "",
-            okayToEmail: false,
+            passwordConfirm: "",
+            joinedNewsletter: false,
         }
     )
 
@@ -42,13 +41,13 @@ function App() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if (formData.password === formData.confirm) {
+        if (formData.password === formData.passwordConfirm) {
             console.log("Successfully signed up");
         } else {
             console.log("Passwords do not match");
         }
 
-        if (formData.okayToEmail) {
+        if (formData.joinedNewsletter) {
             console.log("Thanks for signing\n up for our newsletter!");
         }
     }
@@ -70,23 +69,23 @@ function App() {
                     className="form--input"
                     onChange={handleChange}
                     name="password"
-                    value={formData.passwprd}
+                    value={formData.password}
                 />
                 <input
                     type="password"
                     placeholder="Confirm password"
                     className="form--input"
                     onChange={handleChange}
-                    name="confirm"
-                    value={formData.confirm}
+                    name="passwordConfirm"
+                    value={formData.passwordConfirm}
                 />
 
                 <div className="form--marketing">
                     <input
                         id="okayToEmail"
                         type="checkbox"
-                        name="okayToEmail"
-                        checked={formData.okayToEmail}
+                        name="joinedNewsletter"
+                        checked={formData.joinedNewsletter}
                         onChange={handleChange}
                     />
                     <label htmlFor="okayToEmail">I want to join the newsletter</label>
